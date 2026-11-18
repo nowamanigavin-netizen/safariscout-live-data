@@ -1,0 +1,154 @@
+name: SafariScout Live Data & UWA Tariff Sync
+
+on:
+  schedule:
+    # Runs daily at 04:00 UTC (07:00 AM Kampala EAT) - 100% free on public repos
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: safariscout-live-sync
+  cancel-in-progress: true
+
+jobs:
+  scrape-and-sync:
+    name: Sync Live FX & Monitor UWA Portal
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sync Live FX & UWA FY2026-2027 Tariffs
+        run: |
+          node - << 'EOF'
+          const fs = require('fs');
+          const https = require('https');
+          const path = require('path');
+
+          const TARIFF_FILE = path.join(process.cwd(), 'uwa_tariffs_fy2026_2027.json');
+          const FX_FILE = path.join(process.cwd(), 'fx_rates.json');
+
+          const UWA_HOST = 'https://' + ['ugandawildlife', 'org'].join('.');
+          const UWA_PORTAL_ENDPOINTS = [
+            UWA_HOST + '/wp-json/uwa/v1/tariffs/fy2026-2027',
+            UWA_HOST + '/wp-json/wp/v2/pages?slug=tariffs'
+          ];
+
+          const FX_ENDPOINT = 'https://' + ['open', 'er-api', 'com'].join('.') + '/v6/latest/USD';
+
+          function fetchJson(url) {
+            return new Promise((resolve, reject) => {
+              const req = https.get(url, {
+                headers: { 'User-Agent': 'SafariScout-SyncBot/2.0' },
+                timeout: 10000
+              }, (res) => {
+                if (res.statusCode < 200 || res.statusCode >= 300) {
+                  return reject(new Error(`HTTP ${res.statusCode}`));
+                }
+                let data = '';
+                res.on('data', chunk => { data += chunk; });
+                res.on('end', () => {
+                  try { resolve(JSON.parse(data)); } catch (e) { reject(e); }
+                });
+              });
+              req.on('error', reject);
+              req.on('timeout', () => { req.destroy(); reject(new Error('Timeout')); });
+            });
+          }
+
+          async function runSync() {
+            // 1. Daily Live FX & 30-Day Rolling History Sync
+            try {
+              const fxRes = await fetchJson(FX_ENDPOINT);
+              if (fxRes && fxRes.result === 'success' && fxRes.rates && fxRes.rates.UGX && fs.existsSync(FX_FILE)) {
+                const ugx = Math.round(fxRes.rates.UGX);
+                const eur = fxRes.rates.EUR || 0.92;
+                const gbp = fxRes.rates.GBP || 0.77;
+                const rwf = fxRes.rates.RWF || 1360;
+                const today = new Date().toISOString().slice(0, 10);
+
+                const currentFx = JSON.parse(fs.readFileSync(FX_FILE, 'utf8'));
+                currentFx.updated_at = new Date().toISOString();
+                currentFx.rate = ugx;
+                currentFx.usd_ugx = ugx;
+                currentFx.rates = {
+                  USD: ugx,
+                  EUR: Math.round(ugx / eur),
+                  GBP: Math.round(ugx / gbp),
+                  RWF: Number((ugx / rwf).toFixed(2))
+                };
+                currentFx.raw_rates = { UGX: ugx, EUR: eur, GBP: gbp, RWF: rwf };
+
+                if (Array.isArray(currentFx.history_30d)) {
+                  const last = currentFx.history_30d[currentFx.history_30d.length - 1];
+                  if (!last || last.date !== today) {
+                    currentFx.history_30d.push({ day: 30, date: today, rate: ugx });
+                    if (currentFx.history_30d.length > 30) currentFx.history_30d.shift();
+                    currentFx.history_30d.forEach((item, i) => { item.day = i + 1; });
+                  }
+                }
+                fs.writeFileSync(FX_FILE, JSON.stringify(currentFx, null, 2) + '\n', 'utf8');
+                console.log(`Synced live FX rate: ${ugx} UGX (${today})`);
+              }
+            } catch (fxErr) {
+              console.warn('FX sync skipped:', fxErr.message);
+            }
+
+            // 2. UWA Portal Probe & Canonical Schema Preservation
+            if (fs.existsSync(TARIFF_FILE)) {
+              const currentTariff = JSON.parse(fs.readFileSync(TARIFF_FILE, 'utf8'));
+              let remoteData = null;
+
+              for (const url of UWA_PORTAL_ENDPOINTS) {
+                try {
+                  const parsed = await fetchJson(url);
+                  if (parsed && (parsed.parks || parsed.tariffs)) {
+                    remoteData = parsed;
+                    console.log(`Pulled remote UWA data from ${url}`);
+                    break;
+                  }
+                } catch (err) {
+                  console.log(`UWA probe on ${url}: ${err.message} — preserving verified baseline.`);
+                }
+              }
+
+              if (remoteData && remoteData.parks) {
+                Object.keys(remoteData.parks).forEach(parkKey => {
+                  if (currentTariff.parks && currentTariff.parks[parkKey]) {
+                    Object.assign(currentTariff.parks[parkKey], remoteData.parks[parkKey]);
+                  }
+                });
+                currentTariff.last_synced = new Date().toISOString();
+                fs.writeFileSync(TARIFF_FILE, JSON.stringify(currentTariff, null, 2) + '\n', 'utf8');
+              }
+            }
+          }
+
+          runSync().catch(err => {
+            console.error('Sync encountered an error:', err);
+            process.exit(1);
+          });
+          EOF
+
+      - name: Commit and Push Updated JSON Files
+        run: |
+          git config --global user.name "SafariScout Bot"
+          git config --global user.email "bot@safariscout.app"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add fx_rates.json uwa_tariffs_fy2026_2027.json
+            git commit -m "chore(data): auto-sync live FX & UWA tariffs [skip ci]"
+            git push
+          else
+            echo "No changes detected."
+          fi
