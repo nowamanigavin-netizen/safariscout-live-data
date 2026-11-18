@@ -1,0 +1,600 @@
+{
+  "financial_year": "2026-2027",
+  "tariff_authority": "Uganda Wildlife Authority (UWA)",
+  "effective_period": {
+    "start_date": "2026-03-01",
+    "revision_date_2027": "2027-01-01",
+    "end_date": "2027-06-30"
+  },
+  "policy_notes": {
+    "upfront_payment": "100% upfront payment required; 7-day provisional hold suspended.",
+    "low_season_discounts": {
+      "eligible_months": ["April", "May", "November"],
+      "non_reschedulable": true,
+      "gorilla_tracking": {
+        "foreign_non_resident": 600,
+        "foreign_resident": 500
+      },
+      "chimpanzee_tracking_kibale": {
+        "foreign_non_resident": 200,
+        "foreign_resident": 150
+      },
+      "summary": "April/May/November low-season discounts ($600 FNR / $500 FR for gorillas; $200 FNR / $150 FR for Kibale chimps; non-reschedulable)."
+    }
+  },
+  "currency_codes": {
+    "foreign_non_resident": "USD",
+    "foreign_resident": "USD",
+    "rest_of_africa": "USD",
+    "east_african_community": "UGX"
+  },
+  "individual_tariffs": {
+    "gorilla_tracking": {
+      "foreign_non_resident": 800,
+      "foreign_resident": 700,
+      "rest_of_africa": 500,
+      "east_african_community": 300000
+    },
+    "gorilla_habituation": {
+      "foreign_non_resident": 1500,
+      "foreign_resident": 1000,
+      "rest_of_africa": 1000,
+      "east_african_community": 750000,
+      "effective_2027_01_01": {
+        "foreign_non_resident": 1800,
+        "foreign_resident": 1600,
+        "rest_of_africa": 1000,
+        "east_african_community": 750000
+      }
+    },
+    "chimpanzee_tracking": {
+      "kibale": {
+        "foreign_non_resident": 250,
+        "foreign_resident": 200,
+        "rest_of_africa": 200,
+        "east_african_community": 180000,
+        "effective_2027_01_01": {
+          "foreign_non_resident": 300,
+          "foreign_resident": 200,
+          "rest_of_africa": 100,
+          "east_african_community": 180000
+        }
+      },
+      "kyambura": {
+        "foreign_non_resident": 100,
+        "foreign_resident": 80,
+        "rest_of_africa": 80,
+        "east_african_community": 50000,
+        "effective_2027_01_01": {
+          "foreign_non_resident": 200,
+          "foreign_resident": 150,
+          "rest_of_africa": 100,
+          "east_african_community": 50000
+        }
+      }
+    },
+    "chimpanzee_habituation": {
+      "foreign_non_resident": 300,
+      "foreign_resident": 250,
+      "rest_of_africa": 250,
+      "east_african_community": 250000,
+      "effective_2027_01_01": {
+        "foreign_non_resident": 400,
+        "foreign_resident": 300,
+        "rest_of_africa": 250,
+        "east_african_community": 250000
+      }
+    },
+    "experimental_tourism_and_tracking": {
+      "lion_tracking": {
+        "foreign_non_resident": 200,
+        "foreign_resident": 150,
+        "rest_of_africa": 150,
+        "east_african_community": 200000,
+        "effective_2027_01_01": {
+          "foreign_non_resident": 500,
+          "foreign_resident": 300,
+          "rest_of_africa": 300,
+          "east_african_community": 250000
+        }
+      }
+    }
+  },
+  "park_categories": {
+    "category_a_plus": {
+      "name": "Category A-Plus Parks",
+      "description": "Premium savanna destination with unique Nile river & delta excursions",
+      "daily_individual_entry_fee": {
+        "foreign_non_resident": 45,
+        "foreign_resident": 35,
+        "rest_of_africa": 35,
+        "east_african_community": 25000
+      },
+      "parks": ["murchison_falls"]
+    },
+    "category_a": {
+      "name": "Category A Parks",
+      "description": "Standard high-density savanna, montane forest, and tropical parks ($40 FNR)",
+      "daily_individual_entry_fee": {
+        "foreign_non_resident": 40,
+        "foreign_resident": 30,
+        "rest_of_africa": 30,
+        "east_african_community": 20000
+      },
+      "parks": [
+        "queen_elizabeth",
+        "kidepo_valley",
+        "lake_mburo",
+        "kibale",
+        "bwindi_impenetrable",
+        "mgahinga_gorilla"
+      ]
+    },
+    "category_b": {
+      "name": "Category B Parks",
+      "description": "Alpine, montane, and lowland tropical forest parks ($35 FNR)",
+      "daily_individual_entry_fee": {
+        "foreign_non_resident": 35,
+        "foreign_resident": 25,
+        "rest_of_africa": 25,
+        "east_african_community": 15000
+      },
+      "parks": [
+        "semuliki",
+        "mount_elgon",
+        "rwenzori_mountains"
+      ]
+    },
+    "wildlife_reserves": {
+      "name": "Wildlife Reserves",
+      "daily_individual_entry_fee": {
+        "foreign_non_resident": 35,
+        "foreign_resident": 25,
+        "rest_of_africa": 25,
+        "east_african_community": 10000
+      },
+      "parks": [
+        "toro_semliki",
+        "katonga"
+      ]
+    }
+  },
+  "parks": {
+    "murchison_falls": {
+      "park_id": "MFNP",
+      "name": "Murchison Falls National Park",
+      "tier_category": "A-Plus",
+      "category_label": "Category A-Plus ($45)",
+      "daily_entry_fees": {
+        "foreign_non_resident": 45,
+        "foreign_resident": 35,
+        "rest_of_africa": 35,
+        "east_african_community": 25000
+      },
+      "foreign_non_resident": 45,
+      "foreign_resident": 35,
+      "rest_of_africa": 35,
+      "east_african_community": 25000,
+      "activities": {
+        "launch_cruise_falls_bottom": {
+          "foreign_non_resident": 30,
+          "foreign_resident": 25,
+          "rest_of_africa": 25,
+          "east_african_community": 30000
+        },
+        "top_of_falls_hike": {
+          "foreign_non_resident": 15,
+          "foreign_resident": 10,
+          "rest_of_africa": 10,
+          "east_african_community": 10000
+        },
+        "sport_fishing_per_day": {
+          "foreign_non_resident": 50,
+          "foreign_resident": 50,
+          "rest_of_africa": 50,
+          "east_african_community": 100000
+        }
+      }
+    },
+    "queen_elizabeth": {
+      "park_id": "QENP",
+      "name": "Queen Elizabeth National Park",
+      "tier_category": "A",
+      "category_label": "Category A ($40)",
+      "daily_entry_fees": {
+        "foreign_non_resident": 40,
+        "foreign_resident": 30,
+        "rest_of_africa": 30,
+        "east_african_community": 20000
+      },
+      "foreign_non_resident": 40,
+      "foreign_resident": 30,
+      "rest_of_africa": 30,
+      "east_african_community": 20000,
+      "experiential_tourism": {
+        "lion_predator_tracking": {
+          "name": "Lion & Predator Tracking (Kasenyi Plains)",
+          "fees": {
+            "foreign_non_resident": 200,
+            "foreign_resident": 150,
+            "rest_of_africa": 150,
+            "east_african_community": 200000
+          },
+          "foreign_non_resident": 200,
+          "foreign_resident": 150,
+          "rest_of_africa": 150,
+          "east_african_community": 200000,
+          "effective_2027_01_01": {
+            "foreign_non_resident": 500,
+            "foreign_resident": 300,
+            "rest_of_africa": 300,
+            "east_african_community": 250000
+          },
+          "mandatory_exclusions": [
+            "UWA Daily Park Entrance Fee",
+            "Vehicle Entry Fee",
+            "$10 Community Fee"
+          ],
+          "notes": "Off-road tracking permit valid only for designated researcher vehicle. Does not include park entry or vehicle levy."
+        },
+        "hippo_census": {
+          "name": "Hippo Census Tracking",
+          "fees": {
+            "foreign_non_resident": 100,
+            "foreign_resident": 80,
+            "rest_of_africa": 80,
+            "east_african_community": 100000
+          },
+          "foreign_non_resident": 100,
+          "foreign_resident": 80,
+          "rest_of_africa": 80,
+          "east_african_community": 100000,
+          "mandatory_exclusions": [
+            "UWA Daily Park Entrance Fee",
+            "Vehicle Entry Fee",
+            "$10 Community Fee"
+          ]
+        },
+        "mongoose_tracking": {
+          "name": "Banded Mongoose Tracking (Mweya Peninsula)",
+          "fees": {
+            "foreign_non_resident": 30,
+            "foreign_resident": 25,
+            "rest_of_africa": 25,
+            "east_african_community": 30000
+          },
+          "foreign_non_resident": 30,
+          "foreign_resident": 25,
+          "rest_of_africa": 25,
+          "east_african_community": 30000,
+          "mandatory_exclusions": [
+            "UWA Daily Park Entrance Fee",
+            "Vehicle Entry Fee",
+            "$10 Community Fee"
+          ]
+        }
+      },
+      "mandatory_experiential_tracking_exclusions": [
+        "UWA Daily Park Entrance Fee",
+        "Vehicle Entry Fee",
+        "$10 Community Fee"
+      ]
+    },
+    "kidepo_valley": {
+      "park_id": "KVNP",
+      "name": "Kidepo Valley National Park",
+      "tier_category": "A",
+      "category_label": "Category A ($40)",
+      "daily_entry_fees": {
+        "foreign_non_resident": 40,
+        "foreign_resident": 30,
+        "rest_of_africa": 30,
+        "east_african_community": 20000
+      },
+      "foreign_non_resident": 40,
+      "foreign_resident": 30,
+      "rest_of_africa": 30,
+      "east_african_community": 20000
+    },
+    "lake_mburo": {
+      "park_id": "LMNP",
+      "name": "Lake Mburo National Park",
+      "tier_category": "A",
+      "category_label": "Category A ($40)",
+      "daily_entry_fees": {
+        "foreign_non_resident": 40,
+        "foreign_resident": 30,
+        "rest_of_africa": 30,
+        "east_african_community": 20000
+      },
+      "foreign_non_resident": 40,
+      "foreign_resident": 30,
+      "rest_of_africa": 30,
+      "east_african_community": 20000,
+      "activities": {
+        "boat_cruise": {
+          "foreign_non_resident": 30,
+          "foreign_resident": 25,
+          "rest_of_africa": 25,
+          "east_african_community": 30000
+        },
+        "horseback_safari_per_hour": {
+          "foreign_non_resident": 60,
+          "foreign_resident": 50,
+          "rest_of_africa": 50,
+          "east_african_community": 100000
+        }
+      }
+    },
+    "kibale": {
+      "park_id": "KNP",
+      "name": "Kibale Forest National Park",
+      "tier_category": "A",
+      "category_label": "Category A ($40)",
+      "daily_entry_fees": {
+        "foreign_non_resident": 40,
+        "foreign_resident": 30,
+        "rest_of_africa": 30,
+        "east_african_community": 20000
+      },
+      "foreign_non_resident": 40,
+      "foreign_resident": 30,
+      "rest_of_africa": 30,
+      "east_african_community": 20000,
+      "primate_permits": {
+        "chimpanzee_tracking": {
+          "foreign_non_resident": 250,
+          "foreign_resident": 200,
+          "rest_of_africa": 200,
+          "east_african_community": 180000,
+          "effective_2027_01_01": {
+            "foreign_non_resident": 300,
+            "foreign_resident": 200,
+            "rest_of_africa": 100,
+            "east_african_community": 180000
+          }
+        },
+        "chimpanzee_habituation": {
+          "foreign_non_resident": 300,
+          "foreign_resident": 250,
+          "rest_of_africa": 250,
+          "east_african_community": 250000,
+          "effective_2027_01_01": {
+            "foreign_non_resident": 400,
+            "foreign_resident": 300,
+            "rest_of_africa": 250,
+            "east_african_community": 250000
+          }
+        }
+      }
+    },
+    "bwindi_impenetrable": {
+      "park_id": "BINP",
+      "name": "Bwindi Impenetrable National Park",
+      "tier_category": "A",
+      "category_label": "Category A ($40)",
+      "daily_entry_fees": {
+        "foreign_non_resident": 40,
+        "foreign_resident": 30,
+        "rest_of_africa": 30,
+        "east_african_community": 20000
+      },
+      "foreign_non_resident": 40,
+      "foreign_resident": 30,
+      "rest_of_africa": 30,
+      "east_african_community": 20000,
+      "primate_permits": {
+        "gorilla_tracking": {
+          "foreign_non_resident": 800,
+          "foreign_resident": 700,
+          "rest_of_africa": 500,
+          "east_african_community": 300000
+        },
+        "gorilla_habituation": {
+          "foreign_non_resident": 1500,
+          "foreign_resident": 1000,
+          "rest_of_africa": 1000,
+          "east_african_community": 750000,
+          "effective_2027_01_01": {
+            "foreign_non_resident": 1800,
+            "foreign_resident": 1600,
+            "rest_of_africa": 1000,
+            "east_african_community": 750000
+          }
+        }
+      }
+    },
+    "mgahinga_gorilla": {
+      "park_id": "MGNP",
+      "name": "Mgahinga Gorilla National Park",
+      "tier_category": "A",
+      "category_label": "Category A ($40)",
+      "daily_entry_fees": {
+        "foreign_non_resident": 40,
+        "foreign_resident": 30,
+        "rest_of_africa": 30,
+        "east_african_community": 20000
+      },
+      "foreign_non_resident": 40,
+      "foreign_resident": 30,
+      "rest_of_africa": 30,
+      "east_african_community": 20000,
+      "primate_permits": {
+        "gorilla_tracking": {
+          "foreign_non_resident": 800,
+          "foreign_resident": 700,
+          "rest_of_africa": 500,
+          "east_african_community": 300000
+        },
+        "golden_monkey_tracking": {
+          "foreign_non_resident": 100,
+          "foreign_resident": 80,
+          "rest_of_africa": 80,
+          "east_african_community": 40000
+        },
+        "golden_monkey_habituation": {
+          "foreign_non_resident": 140,
+          "foreign_resident": 110,
+          "rest_of_africa": 110,
+          "east_african_community": 100000
+        }
+      }
+    },
+    "semuliki": {
+      "park_id": "SNP",
+      "name": "Semuliki National Park",
+      "tier_category": "B",
+      "category_label": "Category B ($35)",
+      "daily_entry_fees": {
+        "foreign_non_resident": 35,
+        "foreign_resident": 25,
+        "rest_of_africa": 25,
+        "east_african_community": 15000
+      },
+      "foreign_non_resident": 35,
+      "foreign_resident": 25,
+      "rest_of_africa": 25,
+      "east_african_community": 15000
+    },
+    "mount_elgon": {
+      "park_id": "MENP",
+      "name": "Mount Elgon National Park",
+      "tier_category": "B",
+      "category_label": "Category B ($35)",
+      "daily_entry_fees": {
+        "foreign_non_resident": 35,
+        "foreign_resident": 25,
+        "rest_of_africa": 25,
+        "east_african_community": 15000
+      },
+      "foreign_non_resident": 35,
+      "foreign_resident": 25,
+      "rest_of_africa": 25,
+      "east_african_community": 15000
+    },
+    "rwenzori_mountains": {
+      "park_id": "RMNP",
+      "name": "Rwenzori Mountains National Park",
+      "tier_category": "B",
+      "category_label": "Category B ($35)",
+      "daily_entry_fees": {
+        "foreign_non_resident": 35,
+        "foreign_resident": 25,
+        "rest_of_africa": 25,
+        "east_african_community": 15000
+      },
+      "foreign_non_resident": 35,
+      "foreign_resident": 25,
+      "rest_of_africa": 25,
+      "east_african_community": 15000
+    }
+  },
+  "primate_tracking_tariffs": {
+    "mountain_gorilla_tracking": {
+      "activity": "Mountain Gorilla Tracking (Bwindi / Mgahinga)",
+      "foreign_non_resident": 800,
+      "foreign_resident": 700,
+      "rest_of_africa": 500,
+      "east_african_community": 300000,
+      "currency": {
+        "foreign_non_resident": "USD",
+        "foreign_resident": "USD",
+        "rest_of_africa": "USD",
+        "east_african_community": "UGX"
+      },
+      "includes_park_entrance": true
+    },
+    "mountain_gorilla_habituation": {
+      "activity": "Gorilla Habituation Experience (Rushaga Sector)",
+      "foreign_non_resident": 1500,
+      "foreign_resident": 1000,
+      "rest_of_africa": 1000,
+      "east_african_community": 750000,
+      "effective_2027_01_01": {
+        "foreign_non_resident": 1800,
+        "foreign_resident": 1600,
+        "rest_of_africa": 1000,
+        "east_african_community": 750000
+      },
+      "currency": {
+        "foreign_non_resident": "USD",
+        "foreign_resident": "USD",
+        "rest_of_africa": "USD",
+        "east_african_community": "UGX"
+      },
+      "includes_park_entrance": true
+    },
+    "chimpanzee_tracking_kibale": {
+      "activity": "Chimpanzee Tracking (Kibale Forest)",
+      "foreign_non_resident": 250,
+      "foreign_resident": 200,
+      "rest_of_africa": 200,
+      "east_african_community": 180000,
+      "effective_2027_01_01": {
+        "foreign_non_resident": 300,
+        "foreign_resident": 200,
+        "rest_of_africa": 100,
+        "east_african_community": 180000
+      },
+      "currency": {
+        "foreign_non_resident": "USD",
+        "foreign_resident": "USD",
+        "rest_of_africa": "USD",
+        "east_african_community": "UGX"
+      },
+      "includes_park_entrance": true
+    },
+    "chimpanzee_habituation_kibale": {
+      "activity": "Chimpanzee Habituation Experience (Kibale Forest)",
+      "foreign_non_resident": 300,
+      "foreign_resident": 250,
+      "rest_of_africa": 250,
+      "east_african_community": 250000,
+      "effective_2027_01_01": {
+        "foreign_non_resident": 400,
+        "foreign_resident": 300,
+        "rest_of_africa": 250,
+        "east_african_community": 250000
+      },
+      "currency": {
+        "foreign_non_resident": "USD",
+        "foreign_resident": "USD",
+        "rest_of_africa": "USD",
+        "east_african_community": "UGX"
+      },
+      "includes_park_entrance": true
+    },
+    "golden_monkey_tracking": {
+      "activity": "Golden Monkey Tracking (Mgahinga Gorilla NP)",
+      "foreign_non_resident": 100,
+      "foreign_resident": 80,
+      "rest_of_africa": 80,
+      "east_african_community": 40000,
+      "currency": {
+        "foreign_non_resident": "USD",
+        "foreign_resident": "USD",
+        "rest_of_africa": "USD",
+        "east_african_community": "UGX"
+      },
+      "includes_park_entrance": true
+    }
+  },
+  "vehicle_entry_fees": {
+    "saloon_cars": {
+      "foreign_registered": 40,
+      "uganda_eac_registered": 20000
+    },
+    "minibuses_and_omnibuses": {
+      "foreign_registered": 50,
+      "uganda_eac_registered": 30000
+    },
+    "pickups_and_4wd": {
+      "foreign_registered": 50,
+      "uganda_eac_registered": 30000
+    },
+    "tour_company_vehicles": {
+      "foreign_registered": 100,
+      "uganda_eac_registered": 30000
+    }
+  }
+}

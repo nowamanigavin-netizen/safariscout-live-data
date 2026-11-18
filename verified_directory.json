@@ -1,0 +1,447 @@
+{
+  "policy": "Official-Only Verified Sources",
+  "version": "2026.11.18",
+  "lastVerified": "2026-11-18",
+  "officialSources": {
+    "uwa": {
+      "name": "Uganda Wildlife Authority (UWA)",
+      "sourceAuthority": "Uganda Wildlife Authority (UWA)",
+      "url": "https://ugandawildlife.org",
+      "officialUrl": "https://ugandawildlife.org",
+      "lastVerified": "2026-11-18"
+    },
+    "upf": {
+      "name": "Uganda Police Force (Tourism & Traffic Police)",
+      "sourceAuthority": "Uganda Police Force (Tourism & Traffic Police)",
+      "url": "https://upf.go.ug",
+      "officialUrl": "https://upf.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "ucaa": {
+      "name": "Uganda Civil Aviation Authority (UCAA)",
+      "sourceAuthority": "Uganda Civil Aviation Authority (UCAA)",
+      "url": "https://ucaa.go.ug",
+      "officialUrl": "https://ucaa.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "bou": {
+      "name": "Bank of Uganda (BoU)",
+      "sourceAuthority": "Bank of Uganda (BoU)",
+      "url": "https://bou.or.ug",
+      "officialUrl": "https://bou.or.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "utb": {
+      "name": "Uganda Tourism Board (UTB)",
+      "sourceAuthority": "Uganda Tourism Board (UTB)",
+      "url": "https://utb.go.ug",
+      "officialUrl": "https://utb.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "moh": {
+      "name": "Uganda Ministry of Health (MoH)",
+      "sourceAuthority": "Uganda Ministry of Health (MoH)",
+      "url": "https://health.go.ug",
+      "officialUrl": "https://health.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "amref": {
+      "name": "AMREF Flying Doctors",
+      "sourceAuthority": "AMREF Flying Doctors",
+      "url": "https://flydoc.org",
+      "officialUrl": "https://flydoc.org",
+      "lastVerified": "2026-11-18"
+    },
+    "who_snakebite": {
+      "name": "WHO Guidelines for Clinical Management of Snakebites in Africa",
+      "sourceAuthority": "World Health Organization (WHO)",
+      "url": "https://who.int",
+      "officialUrl": "https://who.int",
+      "lastVerified": "2026-11-18"
+    },
+    "who_schistosomiasis": {
+      "name": "WHO Schistosomiasis & International Travel Health",
+      "sourceAuthority": "World Health Organization (WHO)",
+      "url": "https://who.int",
+      "officialUrl": "https://who.int",
+      "lastVerified": "2026-11-18"
+    },
+    "cdc": {
+      "name": "CDC Uganda Travelers' Health",
+      "sourceAuthority": "CDC Travelers' Health",
+      "url": "https://cdc.gov",
+      "officialUrl": "https://cdc.gov",
+      "lastVerified": "2026-11-18"
+    },
+    "uganda_immigration": {
+      "name": "Uganda Directorate of Citizenship & Immigration",
+      "sourceAuthority": "Uganda Directorate of Citizenship & Immigration",
+      "url": "https://immigration.go.ug",
+      "officialUrl": "https://immigration.go.ug",
+      "portalUrl": "https://visas.immigration.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "rwanda_irembo": {
+      "name": "Rwanda Irembo Gov Portal",
+      "sourceAuthority": "Rwanda Irembo Gov Portal",
+      "url": "https://irembo.gov.rw",
+      "officialUrl": "https://irembo.gov.rw",
+      "lastVerified": "2026-11-18"
+    },
+    "mtn_uganda": {
+      "name": "MTN Uganda Official USSD & MoMo Portal",
+      "sourceAuthority": "MTN Uganda",
+      "url": "https://mtn.co.ug",
+      "officialUrl": "https://mtn.co.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "airtel_uganda": {
+      "name": "Airtel Uganda Official USSD & Money Portal",
+      "sourceAuthority": "Airtel Uganda",
+      "url": "https://airtel.co.ug",
+      "officialUrl": "https://airtel.co.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "iucn_apes": {
+      "name": "IUCN Great Ape Tourism Best Practice Guidelines",
+      "sourceAuthority": "IUCN",
+      "url": "https://www.iucn.org",
+      "officialUrl": "https://www.iucn.org",
+      "lastVerified": "2026-11-18"
+    }
+  },
+  "sosHotlines": {
+    "universal_112": {
+      "id": "112",
+      "number": "112",
+      "tel": "112",
+      "sms": "112",
+      "label": "Call Mobile Emergency: 112",
+      "smsRecipientLabel": "112 (Universal GSM Mobile Emergency)",
+      "smsButtonLabel": "Send SOS to 112 GSM",
+      "sourceAuthority": "Uganda Police Force",
+      "officialUrl": "https://upf.go.ug",
+      "sourceUrl": "https://upf.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "police_999": {
+      "id": "999",
+      "number": "999",
+      "tel": "999",
+      "sms": "999",
+      "label": "Call Police Dispatch: 999",
+      "smsRecipientLabel": "999 (Police Rapid Response Command)",
+      "smsButtonLabel": "Send SOS to 999 Police",
+      "sourceAuthority": "Uganda Police Force",
+      "officialUrl": "https://upf.go.ug",
+      "sourceUrl": "https://upf.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "police_hq": {
+      "id": "policehq",
+      "number": "0800 199 399",
+      "tel": "0800199399",
+      "sms": "0800199399",
+      "label": "Police HQ Toll-Free: 0800 199 399",
+      "smsRecipientLabel": "0800 199 399 (National Police HQ Toll-Free)",
+      "smsButtonLabel": "SMS Police HQ Toll-Free",
+      "sourceAuthority": "Uganda Police Force",
+      "officialUrl": "https://upf.go.ug",
+      "sourceUrl": "https://upf.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "uwa_rescue": {
+      "id": "rangerhq",
+      "number": "0800 100 960",
+      "altNumber": "+256 414 355 000",
+      "tel": "0800100960",
+      "altTel": "+256414355000",
+      "sms": "0800100960",
+      "label": "UWA Ranger HQ: 0800 100 960",
+      "smsRecipientLabel": "0800 100 960 (UWA Ranger HQ Toll-Free)",
+      "smsButtonLabel": "SMS UWA Ranger HQ (0800 100 960)",
+      "sourceAuthority": "Uganda Wildlife Authority (UWA)",
+      "officialUrl": "https://ugandawildlife.org",
+      "sourceUrl": "https://ugandawildlife.org",
+      "lastVerified": "2026-11-18"
+    },
+    "tourism_police": {
+      "id": "tourist",
+      "number": "0800 300 117",
+      "e164": "+256 800 300 117",
+      "tel": "0800300117",
+      "sms": "0800300117",
+      "label": "Tourism Police Help: 0800 300 117",
+      "smsRecipientLabel": "0800 300 117 (Uganda Tourism Police Unit)",
+      "smsButtonLabel": "SMS Tourism Police (0800 300 117)",
+      "sourceAuthority": "Uganda Police Force (Tourism Police)",
+      "officialUrl": "https://upf.go.ug",
+      "sourceUrl": "https://upf.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "traffic_police": {
+      "id": "traffic",
+      "number": "0800 199 099",
+      "e164": "+256 800 199 099",
+      "tel": "0800199099",
+      "sms": "0800199099",
+      "label": "Traffic Police Ops: 0800 199 099",
+      "smsRecipientLabel": "0800 199 099 (Uganda Traffic Police Operations)",
+      "smsButtonLabel": "SMS Traffic Police (0800 199 099)",
+      "sourceAuthority": "Uganda Police Force (Directorate of Traffic & Road Safety)",
+      "officialUrl": "https://upf.go.ug",
+      "sourceUrl": "https://upf.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "amref": {
+      "id": "amref",
+      "number": "+254 20 699 2222",
+      "tel": "+254206992222",
+      "sms": "+254206992222",
+      "label": "AMREF Air Evac: +254 20 699 2222",
+      "smsRecipientLabel": "+254 20 699 2222 (AMREF Air Evac Dispatch)",
+      "smsButtonLabel": "SMS AMREF Air Evac",
+      "sourceAuthority": "AMREF Flying Doctors",
+      "officialUrl": "https://flydoc.org",
+      "sourceUrl": "https://flydoc.org",
+      "lastVerified": "2026-11-18"
+    },
+    "the_surgery_kampala": {
+      "id": "surgery",
+      "number": "+256 312 256 003",
+      "backupNumber": "+256 752 756 003",
+      "tel": "+256312256003",
+      "label": "The Surgery Kampala: +256 312 256 003",
+      "sourceAuthority": "Uganda Ministry of Health (MoH)",
+      "officialUrl": "https://health.go.ug",
+      "sourceUrl": "https://health.go.ug",
+      "lastVerified": "2026-11-18"
+    }
+  },
+  "regionalReferralHospitals": [
+    {
+      "id": "mulago",
+      "name": "Mulago National Referral Hospital",
+      "city": "Kampala",
+      "circuit": "Kampala / Entebbe Hub",
+      "phone": "+256 414 554 001",
+      "tel": "+256414554001",
+      "specialty": "Level-1 Trauma ICU & Polyvalent Antivenom Referral",
+      "sourceAuthority": "Uganda Ministry of Health (MoH)",
+      "officialUrl": "https://health.go.ug",
+      "sourceUrl": "https://health.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    {
+      "id": "lacor_gulu",
+      "name": "St. Mary's Hospital Lacor",
+      "city": "Gulu",
+      "circuit": "Murchison Falls / Kidepo Corridor",
+      "phone": "+256 471 432 310",
+      "tel": "+256471432310",
+      "specialty": "24/7 Surgical Emergency & Snakebite Antivenom Depot",
+      "sourceAuthority": "Uganda Ministry of Health (MoH)",
+      "officialUrl": "https://health.go.ug",
+      "sourceUrl": "https://health.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    {
+      "id": "fort_portal",
+      "name": "Fort Portal Regional Referral Hospital",
+      "city": "Fort Portal (Kabarole)",
+      "circuit": "Kibale, Semuliki & Rwenzori",
+      "phone": "+256 483 422 104",
+      "tel": "+256483422104",
+      "specialty": "Albertine Rift Trauma ER & Envenomation Care",
+      "sourceAuthority": "Uganda Ministry of Health (MoH)",
+      "officialUrl": "https://health.go.ug",
+      "sourceUrl": "https://health.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    {
+      "id": "kabale",
+      "name": "Kabale Regional Referral Hospital",
+      "city": "Kabale",
+      "circuit": "Bwindi & Mgahinga Gorilla Circuit",
+      "phone": "+256 486 422 006",
+      "tel": "+256486422006",
+      "specialty": "South-Western Highlands Emergency & Stabilization",
+      "sourceAuthority": "Uganda Ministry of Health (MoH)",
+      "officialUrl": "https://health.go.ug",
+      "sourceUrl": "https://health.go.ug",
+      "lastVerified": "2026-11-18"
+    },
+    {
+      "id": "mbarara",
+      "name": "Mbarara Regional Referral Hospital",
+      "city": "Mbarara",
+      "circuit": "Queen Elizabeth & Lake Mburo",
+      "phone": "+256 485 420 007",
+      "tel": "+256485420007",
+      "specialty": "University Teaching ICU & Antivenom Referral",
+      "sourceAuthority": "Uganda Ministry of Health (MoH)",
+      "officialUrl": "https://health.go.ug",
+      "sourceUrl": "https://health.go.ug",
+      "lastVerified": "2026-11-18"
+    }
+  ],
+  "telecomUssd": {
+    "mtn": {
+      "name": "MTN Uganda",
+      "momo": "*165#",
+      "uwaGatePay": "*165*3#",
+      "dataVoice": "*150#",
+      "balance": "*131#",
+      "momoBalance": "*165*8#",
+      "helpline": "100",
+      "sourceAuthority": "MTN Uganda",
+      "officialUrl": "https://mtn.co.ug",
+      "sourceUrl": "https://mtn.co.ug",
+      "lastVerified": "2026-11-18"
+    },
+    "airtel": {
+      "name": "Airtel Uganda",
+      "airtelMoney": "*185#",
+      "uwaGatePay": "*185*9#",
+      "dataVoice": "*175#",
+      "balance": "*131#",
+      "moneyBalance": "*185*7#",
+      "helpline": "100",
+      "sourceAuthority": "Airtel Uganda",
+      "officialUrl": "https://airtel.co.ug",
+      "sourceUrl": "https://airtel.co.ug",
+      "lastVerified": "2026-11-18"
+    }
+  },
+  "waterWildlifeSafety": {
+    "policy": "Official-Only Verified Sources",
+    "summary": "Nile crocodiles, hippos, and bilharzia (schistosomiasis) inhabit the River Nile, Kazinga Channel, and Lake Victoria shorelines, whereas high-altitude crater lakes (Lake Bunyonyi and Lake Mutanda) are free of crocodiles and hippos.",
+    "lastVerified": "2026-11-18",
+    "safeCraterLakes": [
+      {
+        "id": "lake_bunyonyi",
+        "name": "Lake Bunyonyi (Kabale)",
+        "elevationMeters": 1962,
+        "status": "Crocodile & Hippo Free • Bilharzia Free",
+        "rule": "High-altitude crater lake (~1,962m). Free of Nile crocodiles, hippos, and bilharzia; safe for swimming (very deep water—wear a lifejacket when canoeing).",
+        "sourceAuthority": "Uganda Wildlife Authority (UWA)",
+        "officialUrl": "https://ugandawildlife.org",
+        "secondaryAuthority": "CDC Travelers' Health",
+        "secondaryUrl": "https://cdc.gov"
+      },
+      {
+        "id": "lake_mutanda",
+        "name": "Lake Mutanda (Kisoro)",
+        "elevationMeters": 1800,
+        "status": "Crocodile & Hippo Free • Bilharzia Free",
+        "rule": "Clear high-altitude crater lake waters (~1,800m) beneath Mt. Muhavura. Free of Nile crocodiles, hippos, and bilharzia; swim in designated lodge areas.",
+        "sourceAuthority": "Uganda Wildlife Authority (UWA)",
+        "officialUrl": "https://ugandawildlife.org",
+        "secondaryAuthority": "CDC Travelers' Health",
+        "secondaryUrl": "https://cdc.gov"
+      }
+    ],
+    "restrictedWaterBodies": [
+      {
+        "id": "river_nile_kazinga",
+        "name": "River Nile (Murchison Falls) & Kazinga Channel",
+        "riskLevel": "NO SWIMMING",
+        "hazards": [
+          "Nile crocodiles",
+          "Hippos",
+          "Bilharzia (Schistosomiasis)",
+          "Fast currents"
+        ],
+        "rule": "Aggressive Nile crocodiles, dense hippo pods, bilharzia in shoreline backwaters, and fast currents inhabit the Nile and Kazinga Channel. Swimming prohibited by UWA.",
+        "sourceAuthority": "Uganda Wildlife Authority (UWA)",
+        "officialUrl": "https://ugandawildlife.org",
+        "secondaryAuthority": "World Health Organization (WHO)",
+        "secondaryUrl": "https://who.int"
+      },
+      {
+        "id": "lake_victoria",
+        "name": "Lake Victoria Shorelines & Jinja Backwaters",
+        "riskLevel": "HIGH RISK",
+        "hazards": [
+          "Bilharzia (Schistosomiasis)",
+          "Nile crocodiles",
+          "Hippos"
+        ],
+        "rule": "Nile crocodiles, hippos, and high bilharzia concentration inhabit Lake Victoria shorelines and shallow reeds. Swimming strictly discouraged; stick to lodge pools.",
+        "sourceAuthority": "World Health Organization (WHO)",
+        "officialUrl": "https://who.int",
+        "secondaryAuthority": "CDC Travelers' Health",
+        "secondaryUrl": "https://cdc.gov"
+      }
+    ],
+    "wildlifeSafetyRules": {
+      "nileCrocodiles": {
+        "rule": "Maintain >= 15m setback from River Nile, Kazinga Channel, and Lake Victoria banks; never wade in shallow reeds or dangle limbs off launch boats.",
+        "sourceAuthority": "Uganda Wildlife Authority (UWA)",
+        "officialUrl": "https://ugandawildlife.org"
+      },
+      "hippos": {
+        "rule": "Maintain >= 30m distance from grazing hippos at dawn and dusk; never block a hippo's direct path back to water.",
+        "sourceAuthority": "Uganda Wildlife Authority (UWA)",
+        "officialUrl": "https://ugandawildlife.org"
+      },
+      "bilharzia": {
+        "rule": "Avoid swimming or wading in untreated freshwater along Lake Victoria shorelines, River Nile, and Kazinga Channel due to schistosomiasis (bilharzia) transmission; high-altitude crater lakes Bunyonyi and Mutanda are documented safe exceptions.",
+        "sourceAuthority": "CDC Travelers' Health",
+        "officialUrl": "https://cdc.gov",
+        "secondaryAuthority": "World Health Organization (WHO)",
+        "secondaryUrl": "https://who.int"
+      }
+    }
+  },
+  "verifiedOperators": [
+    {
+      "id": "slot-1",
+      "cardId": "operator-card-4x4",
+      "slotNumber": 1,
+      "name": "Licensed 4x4 Safari Fleet Operator",
+      "autoLicense": "UTB / AUTO Public Directory",
+      "specialty": "Vetted public transport provider • Main Hub: Kampala / Entebbe International Airport corridor. Custom pop-up roof 4x4 Cruisers and camper hire kits.",
+      "category": "car 4x4 selfdrive",
+      "whatsapp": "256787631366",
+      "website": "https://utb.go.ug",
+      "badgeText": "PUBLIC DIRECTORY • UTB/AUTO LISTED",
+      "slotLabel": "Slot 1 Occupied",
+      "ctaText": "Book Fleet via WhatsApp Desk ➔",
+      "status": "active",
+      "expiresAt": "2027-06-30"
+    },
+    {
+      "id": "slot-2",
+      "cardId": "operator-card-4",
+      "slotNumber": 2,
+      "name": "Certified Wilderness Driver-Guide",
+      "autoLicense": "UTB / AUTO Public Directory",
+      "specialty": "Licensed park tracker • Sector: Primate Corridor Circuits (Bwindi, Kibale, Queen Elizabeth, Murchison loops). Expert navigation & permit handling.",
+      "category": "tracker primate gorilla car 4x4",
+      "whatsapp": "256743216614",
+      "website": "https://utb.go.ug",
+      "badgeText": "PUBLIC DIRECTORY • UTB/AUTO LISTED",
+      "slotLabel": "Slot 2 Occupied",
+      "ctaText": "Contact Guide via WhatsApp Desk ➔",
+      "status": "active",
+      "expiresAt": "2027-06-30"
+    },
+    {
+      "id": "slot-3",
+      "cardId": "operator-card-slot3",
+      "slotNumber": 3,
+      "name": "Feature Your 4×4 Fleet or Guiding Services Here",
+      "autoLicense": "",
+      "specialty": "Target high-intent self-drive travelers planning custom wilderness safaris inside Uganda completely offline.",
+      "category": "car 4x4 lodge tracker vacant",
+      "whatsapp": "",
+      "website": "",
+      "badgeText": "VACANT AVAILABLE SLOT 3",
+      "slotLabel": "Vacant Slot 3",
+      "ctaText": "Apply to List Your Fleet ➔",
+      "status": "open",
+      "expiresAt": "2027-06-30"
+    }
+  ]
+}
