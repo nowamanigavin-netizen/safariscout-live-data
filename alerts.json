@@ -1,6 +1,18 @@
 {
   "activeAlert": false,
-  "title": "Safari Field Advisory",
-  "message": "UWA Field Advisory: Bwindi & Queen Elizabeth circuits fully open. Carry rain gear & valid gorilla permits.",
-  "alert": "UWA Field Advisory: Bwindi & Queen Elizabeth circuits fully open. Carry rain gear & valid gorilla permits."
+  "title": "Uganda Field Advisories (2026-11-19)",
+  "message": "Health Notice: Travel Health Notices Be aware of current health issues in Uganda. Learn how to protect yourself. Level 2 Practice Enhanced Precautions Updated Ebola Bundibugyo Virus Disease in the Democratic Republic of the Congo and Uganda ,Ebola Bundibugyo Virus Disease in the Democratic Republic of the Congo and Uganda",
+  "alert": "UWA Field Advisory: Bwindi & Queen Elizabeth circuits fully open. Carry rain gear & valid gorilla permits.",
+  "lastChecked": "2026-11-19T06:53:26.140Z",
+  "verifiedDate": "2026-11-19",
+  "expiresAt": "2026-11-26T06:53:11.597Z",
+  "active": true,
+  "bulletins": [
+    {
+      "category": "Health",
+      "severity": "warning",
+      "text": "Health Notice: Travel Health Notices Be aware of current health issues in Uganda. Learn how to protect yourself. Level 2 Practice Enhanced Precautions Updated Ebola Bundibugyo Virus Disease in the Democratic Republic of the Congo and Uganda ,Ebola Bundibugyo Virus Disease in the Democratic Republic of the Congo and Uganda"
+    }
+  ],
+  "severity": "warning"
 }
