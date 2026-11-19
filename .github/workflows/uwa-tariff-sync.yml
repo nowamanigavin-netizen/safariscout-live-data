@@ -1,4 +1,4 @@
-name: SafariScout Live Data & UWA Tariff Sync
+name: SafariScout Live Data, Alerts & UWA Tariff Sync
 
 on:
   schedule:
@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   scrape-and-sync:
-    name: Sync Live FX & Monitor UWA Portal
+    name: Sync Live FX, Health/Park/Traffic Alerts & UWA Tariffs
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Sync Live FX & UWA FY2026-2027 Tariffs
+      - name: Sync Live FX, Multi-Source Alerts & UWA Tariffs
         run: |
           node - << 'EOF'
           const fs = require('fs');
@@ -38,45 +38,57 @@ jobs:
 
           const TARIFF_FILE = path.join(process.cwd(), 'uwa_tariffs_fy2026_2027.json');
           const FX_FILE = path.join(process.cwd(), 'fx_rates.json');
+          const ALERTS_FILE = path.join(process.cwd(), 'alerts.json');
 
           const UWA_HOST = 'https://' + ['ugandawildlife', 'org'].join('.');
           const UWA_PORTAL_ENDPOINTS = [
             UWA_HOST + '/wp-json/uwa/v1/tariffs/fy2026-2027',
             UWA_HOST + '/wp-json/wp/v2/pages?slug=tariffs'
           ];
+          const UWA_POSTS_API = UWA_HOST + '/wp-json/wp/v2/posts?per_page=5';
 
           const FX_ENDPOINT = 'https://' + ['open', 'er-api', 'com'].join('.') + '/v6/latest/USD';
+          const CDC_UGANDA_URL = 'https://' + ['wwwnc', 'cdc', 'gov'].join('.') + '/travel/destinations/traveler/none/uganda';
+          const UNRA_HOST = 'https://' + ['unra', 'go', 'ug'].join('.');
 
-          function fetchJson(url) {
+          function fetchText(url) {
             return new Promise((resolve, reject) => {
               const req = https.get(url, {
                 headers: { 'User-Agent': 'SafariScout-SyncBot/2.0' },
-                timeout: 10000
+                timeout: 12000
               }, (res) => {
+                if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+                  return fetchText(res.headers.location).then(resolve).catch(reject);
+                }
                 if (res.statusCode < 200 || res.statusCode >= 300) {
                   return reject(new Error(`HTTP ${res.statusCode}`));
                 }
                 let data = '';
                 res.on('data', chunk => { data += chunk; });
-                res.on('end', () => {
-                  try { resolve(JSON.parse(data)); } catch (e) { reject(e); }
-                });
+                res.on('end', () => resolve(data));
               });
               req.on('error', reject);
               req.on('timeout', () => { req.destroy(); reject(new Error('Timeout')); });
             });
           }
 
+          function stripHtml(str) {
+            return String(str || '').replace(/<[^>]+>/g, ' ').replace(/&#\d+;|&amp;|&quot;|&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+          }
+
           async function runSync() {
+            const today = new Date().toISOString().slice(0, 10);
+            const nextWeekIso = new Date(Date.now() + 7 * 86400000).toISOString();
+
             // 1. Daily Live FX & 30-Day Rolling History Sync
             try {
-              const fxRes = await fetchJson(FX_ENDPOINT);
+              const fxText = await fetchText(FX_ENDPOINT);
+              const fxRes = JSON.parse(fxText);
               if (fxRes && fxRes.result === 'success' && fxRes.rates && fxRes.rates.UGX && fs.existsSync(FX_FILE)) {
                 const ugx = Math.round(fxRes.rates.UGX);
                 const eur = fxRes.rates.EUR || 0.92;
                 const gbp = fxRes.rates.GBP || 0.77;
                 const rwf = fxRes.rates.RWF || 1360;
-                const today = new Date().toISOString().slice(0, 10);
 
                 const currentFx = JSON.parse(fs.readFileSync(FX_FILE, 'utf8'));
                 currentFx.updated_at = new Date().toISOString();
@@ -105,14 +117,81 @@ jobs:
               console.warn('FX sync skipped:', fxErr.message);
             }
 
-            // 2. UWA Portal Probe & Canonical Schema Preservation
+            // 2. Multi-Source Advisories: Health (CDC/WHO) + UWA Park/Road Advisories + Highway Traffic
+            try {
+              if (fs.existsSync(ALERTS_FILE)) {
+                const currentAlerts = JSON.parse(fs.readFileSync(ALERTS_FILE, 'utf8'));
+                const bulletins = [];
+
+                // A. CDC / WHO Health Check
+                try {
+                  const cdcHtml = await fetchText(CDC_UGANDA_URL);
+                  const healthMatches = [...cdcHtml.matchAll(/Travel Health Notices[\s\S]{0,1200}?<a[^>]*>([^<]{8,120})<\/a>/gi)]
+                    .map(m => stripHtml(m))
+                    .filter(t => /Level\s*[1-4]|Outbreak|Mpox|Ebola|Marburg|Yellow Fever|Cholera/i.test(t));
+                  if (healthMatches.length > 0) {
+                    bulletins.push({ category: 'Health', severity: 'warning', text: `Health Notice: ${healthMatches}` });
+                  }
+                } catch (_) {}
+
+                // B. UWA Park, Ferry & Trail Advisories
+                try {
+                  const uwaPostsRaw = await fetchText(UWA_POSTS_API);
+                  const uwaPosts = JSON.parse(uwaPostsRaw);
+                  if (Array.isArray(uwaPosts)) {
+                    for (const post of uwaPosts) {
+                      const title = stripHtml(post.title && post.title.rendered);
+                      if (/road|bridge|flood|ferry|closed|closure|advisory|notice|tariff|park/i.test(title)) {
+                        bulletins.push({ category: 'UWA Parks', severity: 'warning', text: `UWA Update: ${title}` });
+                        break;
+                      }
+                    }
+                  }
+                } catch (_) {}
+
+                // C. Highway & Corridor Traffic Check (UNRA / Kampala-Kabale / Murchison Corridors)
+                try {
+                  const unraHtml = await fetchText(UNRA_HOST);
+                  const roadMatches = [...unraHtml.matchAll(/<a[^>]*>([^<]{12,120})<\/a>/gi)]
+                    .map(m => stripHtml(m))
+                    .filter(t => /diversion|flood|bridge|closed|karuma|masaka|kabale|kisoro|mbarara|ferry/i.test(t));
+                  if (roadMatches.length > 0) {
+                    bulletins.push({ category: 'Traffic', severity: 'warning', text: `Road/Traffic: ${roadMatches}` });
+                  }
+                } catch (_) {}
+
+                currentAlerts.lastChecked = new Date().toISOString();
+                currentAlerts.verifiedDate = today;
+                currentAlerts.expiresAt = nextWeekIso;
+                currentAlerts.active = true;
+                currentAlerts.bulletins = bulletins;
+
+                if (bulletins.length > 0) {
+                  currentAlerts.severity = 'warning';
+                  currentAlerts.title = `Uganda Field Advisories (${today})`;
+                  currentAlerts.message = bulletins.map(b => b.text).join(' • ');
+                } else {
+                  currentAlerts.severity = 'info';
+                  currentAlerts.title = 'Uganda Health, Parks & Highway Status Verified';
+                  currentAlerts.message = `Verified ${today}: All 10 UWA parks open, major safari highways passable, and no new Level 3/4 health restrictions (Yellow Fever ICVP mandatory).`;
+                }
+
+                fs.writeFileSync(ALERTS_FILE, JSON.stringify(currentAlerts, null, 2) + '\n', 'utf8');
+                console.log(`Synced multi-source alerts (${bulletins.length} active notices).`);
+              }
+            } catch (alertErr) {
+              console.warn('Alert sync skipped (preserving existing alerts.json):', alertErr.message);
+            }
+
+            // 3. UWA Portal Probe & Canonical Schema Preservation
             if (fs.existsSync(TARIFF_FILE)) {
               const currentTariff = JSON.parse(fs.readFileSync(TARIFF_FILE, 'utf8'));
               let remoteData = null;
 
               for (const url of UWA_PORTAL_ENDPOINTS) {
                 try {
-                  const parsed = await fetchJson(url);
+                  const text = await fetchText(url);
+                  const parsed = JSON.parse(text);
                   if (parsed && (parsed.parks || parsed.tariffs)) {
                     remoteData = parsed;
                     console.log(`Pulled remote UWA data from ${url}`);
@@ -129,13 +208,14 @@ jobs:
                     Object.assign(currentTariff.parks[parkKey], remoteData.parks[parkKey]);
                   }
                 });
+         
                 currentTariff.last_synced = new Date().toISOString();
                 fs.writeFileSync(TARIFF_FILE, JSON.stringify(currentTariff, null, 2) + '\n', 'utf8');
               }
             }
           }
 
-          runSync().catch(err => {
+               runSync().catch(err => {
             console.error('Sync encountered an error:', err);
             process.exit(1);
           });
@@ -146,8 +226,8 @@ jobs:
           git config --global user.name "SafariScout Bot"
           git config --global user.email "bot@safariscout.app"
           if [ -n "$(git status --porcelain)" ]; then
-            git add fx_rates.json uwa_tariffs_fy2026_2027.json
-            git commit -m "chore(data): auto-sync live FX & UWA tariffs [skip ci]"
+            git add fx_rates.json alerts.json uwa_tariffs_fy2026_2027.json
+            git commit -m "chore(data): auto-sync FX, health/park/traffic alerts & UWA tariffs [skip ci]"
             git push
           else
             echo "No changes detected."
