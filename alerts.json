@@ -3,9 +3,9 @@
   "title": "Uganda Field Advisories (2026-11-26)",
   "message": "Health Notice: Ebola Bundibugyo Virus Disease in the Democratic Republic of the Congo and Uganda",
   "alert": "UWA Field Advisory: Bwindi & Queen Elizabeth circuits fully open. Carry rain gear & valid gorilla permits.",
-  "lastChecked": "2026-11-26T05:01:58.329Z",
+  "lastChecked": "2026-11-26T14:43:34.109Z",
   "verifiedDate": "2026-11-26",
-  "expiresAt": "2026-12-03T05:02:13.286Z",
+  "expiresAt": "2026-12-03T14:43:47.919Z",
   "active": true,
   "bulletins": [
     {
@@ -15,7 +15,7 @@
     }
   ],
   "severity": "warning",
-  "last_updated": "2026-11-26T05:01:58.329Z",
+  "last_updated": "2026-11-26T14:43:34.109Z",
   "advisories": [
     {
       "id": "uga-sync-2026-11-26",

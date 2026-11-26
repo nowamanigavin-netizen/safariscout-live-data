@@ -3,20 +3,20 @@
   "target": "UGX",
   "source": "Multi-Source Interbank Consensus (curated against bou.or.ug)",
   "reference_authority": "https://bou.or.ug",
-  "updated_at": "2026-11-26T05:01:58.329Z",
-  "rate": 4086,
-  "usd_ugx": 4086,
+  "updated_at": "2026-11-26T14:43:34.109Z",
+  "rate": 4168,
+  "usd_ugx": 4168,
   "rates": {
-    "USD": 4086,
-    "EUR": 4478,
-    "GBP": 5353,
-    "RWF": 2.76
+    "USD": 4168,
+    "EUR": 4570,
+    "GBP": 5460,
+    "RWF": 2.82
   },
   "raw_rates": {
-    "UGX": 4086,
-    "EUR": 0.91245,
-    "GBP": 0.763269,
-    "RWF": 1481.829676
+    "UGX": 4168,
+    "EUR": 0.9121,
+    "GBP": 0.763394,
+    "RWF": 1479.787402
   },
   "spreads": {
     "interbank": 1,
