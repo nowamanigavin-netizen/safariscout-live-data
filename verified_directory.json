@@ -400,6 +400,7 @@
       "cardId": "operator-card-4x4",
       "slotNumber": 1,
       "name": "Licensed 4x4 Safari Fleet Operator",
+      "logo": "",
       "autoLicense": "UTB / AUTO Public Directory",
       "specialty": "Vetted public transport provider • Main Hub: Kampala / Entebbe International Airport corridor. Custom pop-up roof 4x4 Cruisers and camper hire kits.",
       "category": "car 4x4 selfdrive",
@@ -416,6 +417,7 @@
       "cardId": "operator-card-4",
       "slotNumber": 2,
       "name": "Certified Wilderness Driver-Guide",
+      "logo": "",
       "autoLicense": "UTB / AUTO Public Directory",
       "specialty": "Licensed park tracker • Sector: Primate Corridor Circuits (Bwindi, Kibale, Queen Elizabeth, Murchison loops). Expert navigation & permit handling.",
       "category": "tracker primate gorilla car 4x4",
@@ -432,6 +434,7 @@
       "cardId": "operator-card-slot3",
       "slotNumber": 3,
       "name": "Feature Your 4×4 Fleet or Guiding Services Here",
+      "logo": "",
       "autoLicense": "",
       "specialty": "Target high-intent self-drive travelers planning custom wilderness safaris inside Uganda completely offline.",
       "category": "car 4x4 lodge tracker vacant",
@@ -444,5 +447,5 @@
       "expiresAt": "2027-06-30"
     }
   ],
-   "admin_whatsapp": "256759180089"
+  "admin_whatsapp": "256759180089"
 }
